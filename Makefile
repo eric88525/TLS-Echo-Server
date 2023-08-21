@@ -7,3 +7,6 @@ myserver: myServer.c
 
 myclient: myClient.c
 	$(CC) -Wall -o myClient myClient.c -L/usr/lib -lssl -lcrypto
+
+clean:
+	rm myServer myClient
