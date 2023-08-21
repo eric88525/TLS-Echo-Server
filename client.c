@@ -104,18 +104,23 @@ int main(int argc, char *argv[]) {
 
     showCert(ssl);
 
-    //char message[BUFSIZE + 1] = "Hello, server!";
-
     char message[BUFSIZE+1]={};
 
-    scanf("%s", message);
-    //gets(message);
+    while (1) {
+        printf("Enter a message (or 'exit' to quit): ");
+        fgets(message, BUFSIZE, stdin);
+        message[strcspn(message, "\n")] = '\0'; // Remove trailing newline
 
-    SSL_write(ssl, message, strlen(message));
+        if (strcmp(message, "exit") == 0) {
+            break; // Exit the loop
+        }
 
-    memset(message, 0, sizeof(message));
-    SSL_read(ssl, message, sizeof(message));
-    printf("Received message from server: %s\n", message);
+        SSL_write(ssl, message, strlen(message));
+
+        memset(message, 0, sizeof(message));
+        SSL_read(ssl, message, sizeof(message));
+        printf("Received message from server: %s\n", message);
+    }
 
     SSL_shutdown(ssl);
     SSL_free(ssl);

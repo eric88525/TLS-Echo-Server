@@ -1,12 +1,15 @@
-all:  myserver myclient
+all:  myserver myclient mthread_server
 
 CC = gcc
 
-myserver: myServer.c
-	$(CC) -Wall -o myServer myServer.c -L/usr/lib -lssl -lcrypto	
+myserver: server.c
+	$(CC) -Wall -o server server.c -L/usr/lib -lssl -lcrypto
 
-myclient: myClient.c
-	$(CC) -Wall -o myClient myClient.c -L/usr/lib -lssl -lcrypto
+myclient: client.c
+	$(CC) -Wall -o client client.c -L/usr/lib -lssl -lcrypto
+
+mthread_server: mthread_server.c
+	$(CC) -Wall -o mserver mthread_server.c -L/usr/lib -lssl -lcrypto -lpthread
 
 clean:
-	rm myServer myClient
+	rm server client mserver
