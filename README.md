@@ -2,6 +2,10 @@
 
 A simple TLS-based echo server and client for demonstrating secure communication.
 
+## Demo
+
+![](/demo.png)
+
 ## Features
 
 **Server**
