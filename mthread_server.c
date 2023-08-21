@@ -13,9 +13,9 @@
 #include <pthread.h>
 #define BUFSIZE 1024
 
-#define CA_FILE       "./ca/ca-cert.pem"
-#define SERVER_KEY    "./server/server-private.key"
-#define SERVER_CERT   "./server/server-cert.pem"
+#define CA_FILE       "certificates/ca-cert.pem"
+#define SERVER_KEY    "certificates/server-private.key"
+#define SERVER_CERT   "certificates/server-cert.pem"
 
 void setCA(SSL_CTX *ctx) {
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, 0);

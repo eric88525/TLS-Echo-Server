@@ -11,9 +11,9 @@
 #include <openssl/err.h>
 #define BUFSIZE 1024
 
-#define CA_FILE       "ca/ca-cert.pem"
-#define CLIENT_KEY    "client/client-private.key"
-#define CLIENT_CERT   "client/client-cert.pem"
+#define CA_FILE       "certificates/ca-cert.pem"
+#define CLIENT_KEY    "certificates/client-private.key"
+#define CLIENT_CERT   "certificates/client-cert.pem"
 
 void setCA(SSL_CTX *ctx) {
     SSL_CTX_set_verify(ctx, SSL_VERIFY_PEER, 0);
